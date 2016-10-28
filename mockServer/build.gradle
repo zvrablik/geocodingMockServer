@@ -1,0 +1,38 @@
+apply plugin: 'java'
+apply plugin: 'war'
+
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    providedCompile "javax.servlet:javax.servlet-api:3.1.0"
+    testCompile 'junit:junit:4.12'
+}
+
+
+war.baseName = 'geocodingMockApp'
+
+//embeded tomcat configuration
+
+buildscript {
+    repositories {
+        jcenter()
+        // enable this to use snapshot versions of Gretty:
+        // maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local' }
+    }
+
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
+}
+
+repositories {
+    jcenter()
+    // enable this to use snapshot versions of Gretty:
+    // maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local' }
+}
+
+apply plugin: 'org.akhikhl.gretty'

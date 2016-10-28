@@ -1,0 +1,3 @@
+include 'mockServer'
+
+rootProject.name = 'geocodingMockServer'
