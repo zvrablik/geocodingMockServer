@@ -36,3 +36,7 @@ repositories {
 }
 
 apply plugin: 'org.akhikhl.gretty'
+
+gretty {
+    servletContainer = 'tomcat8'
+}
