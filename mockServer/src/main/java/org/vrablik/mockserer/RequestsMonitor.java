@@ -45,7 +45,7 @@ public class RequestsMonitor {
         public void run() {
             boolean loop = true;
             System.out.println("Monitoring requests:");
-            
+
             while (loop) {
                 long currentTimeSecondsMsg = (System.currentTimeMillis() - startTime) / 1000;
                 int noOfRequestSinceLastTime = requests.getAndSet(0);
