@@ -39,4 +39,8 @@ apply plugin: 'org.akhikhl.gretty'
 
 gretty {
     servletContainer = 'tomcat8'
+    httpPort = 8081
+
+    httpsEnabled = true
+    httpsPort = 8444
 }
