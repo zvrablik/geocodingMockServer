@@ -30,14 +30,14 @@ public class GeocodingServlet extends HttpServlet {
         monitor.startRequest();
 
         try {
-            Thread.sleep(50L);
+            Thread.sleep(50L);//change this to 2000 to simulate slow server response
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         Charset charset = Charset.forName(res.getCharacterEncoding());
         byte[] responseBytes = createResponse().getBytes(charset);
 
-        res.setStatus(HttpServletResponse.SC_OK);
+        res.setStatus(200);//change this to 500 or 404 to simulate server internal error
         res.setContentLength(responseBytes.length);
         res.setContentType("application/json");
         res.getOutputStream().write(responseBytes);
@@ -62,6 +62,7 @@ public class GeocodingServlet extends HttpServlet {
 
         String placeId = ordinatesGenerator.getRandomPlaceId();
 
+        //comment out any part of the json response to simulate malformed json response
         msg.append("{");
         msg.append("\"results\" : [");
         msg.append(         "{");
